@@ -40,7 +40,7 @@
 
 4. **What is the next rally event Dhyeya is going to be at?**
 
-   -**Hint**: WRC Rally Chile Bio Bio
+   - **Hint**: WRC Rally Chile Bio Bio
 
 5. **What rally team does Dhyeya drive for?**
 
