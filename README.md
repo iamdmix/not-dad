@@ -1,4 +1,4 @@
-#Disclaimer: No large language models were harmed in the creation of this question. Any confusion or overthinking was purely self-inflicted. Proceed with humor! 
+# Disclaimer: No large language models were harmed in the creation of this question. Any confusion or overthinking was purely self-inflicted. Proceed with humor! 
 
 
 # Dhyeya Anand Deshpande - OSINT CTF
