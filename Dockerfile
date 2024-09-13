@@ -1,7 +1,6 @@
 FROM python:3.11-alpine
 RUN apk update && \
-apk upgrade && \
-apk add bash
+apk add --no-cache bash
 USER root
 COPY req.txt /root/req.txt
 COPY gen_flag /root/gen_flag
