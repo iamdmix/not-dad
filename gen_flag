@@ -1,0 +1,1 @@
+sed -i "s/c0d{fake_flag}/$1/" /root/main.py
