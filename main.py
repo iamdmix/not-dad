@@ -92,9 +92,6 @@ def home():
             valid_lower = [answer.lower() for answer in valid_answers]
             
             if user_input not in valid_lower:
-<<<<<<< HEAD
-                return f"Wrong answer! Try again."
-=======
                 incorrect_fields.append(field_labels.get(key, key))
         
         # Return message if there are incorrect answers
@@ -103,7 +100,6 @@ def home():
             return f"Wrong answer! The following fields are incorrect: {incorrect_list}"
         
         # Return the flag if all answers are correct
->>>>>>> 9322ef3 (Fix: removed the wrong options)
         return FLAG
 
     # Render the form template on GET request
