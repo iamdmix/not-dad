@@ -1,26 +1,91 @@
-<h1>
-  OSINT CTF Questions for Dhyeya Anand Deshpande
-</h1>
-<form method="post">
-  When is Dhyeya's date of birth? <input name="dob"/>
-  <br/><br/>
-  Where is Dhyeya originally from? <input name="org"/>
-  <br/><br/>
-  Which motorcycle does Dhyeya adore and own? <input name="mcycle"/>
-  <br/><br/>
-  What type of cuisine does Dhyeya enjoy? <input name="cuisine"/>
-  <br/><br/>
-  Where does Dhyeya currently live? <input name="curr"/>
-  <br/><br/>
-  What is Dhyeya's favorite track type to race on? <input name="track"/>
-  <br/><br/>
-  What type of engineering degree does Dhyeya hold? <input name="degree"/>
-  <br/><br/>
-  What was a recent rally event that Dhyeya participated in? <input name="rally"/>
-  <br/><br/>
-  What is the next rally event Dhyeya is going to be at? <input name="next"/>
-  <br/><br/>
-  What rally team does Dhyeya drive for? <input name="team"/>
-  <br/><br/>
-  <button type="submit">Submit</button>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OSINT CTF Questions</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      text-align: center;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      width: 300px;
+    }
+    form {
+      margin-top: 20px;
+    }
+    input {
+      margin: 10px 0;
+      padding: 8px;
+      width: 100%;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #218838;
+    }
+    p {
+      font-size: 12px;
+      color: gray;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>OSINT CTF Questions for Dhyeya Anand Deshpande</h1>
+    <form method="post">
+      When is Dhyeya's date of birth? <br/>
+      <input name="dob"/><br/>
+
+      Where is Dhyeya originally from? <br/>
+      <input name="org"/><br/>
+
+      Which motorcycle does Dhyeya adore and own? <br/>
+      <input name="mcycle"/><br/>
+
+      What type of cuisine does Dhyeya enjoy? <br/>
+      <input name="cuisine"/><br/>
+
+      Where does Dhyeya currently live? <br/>
+      <input name="curr"/><br/>
+
+      What is Dhyeya's favorite track type to race on? <br/>
+      <input name="track"/><br/>
+
+      What type of engineering degree does Dhyeya hold? <br/>
+      <input name="degree"/><br/>
+
+      What was a recent rally event that Dhyeya participated in? <br/>
+      <input name="rally"/><br/>
+
+      What is the next rally event Dhyeya is going to be at? <br/>
+      <input name="next"/><br/>
+
+      What rally team does Dhyeya drive for? <br/>
+      <input name="team"/><br/>
+
+      <button type="submit">Submit</button>
+    </form>
+    <p>Note: If your answer wasn't accepted, it might be due to formatting. Try changing the format (e.g., "26/05/1974" vs. "May 26, 1974") and submit again.</p>
+  </div>
+</body>
+</html>
