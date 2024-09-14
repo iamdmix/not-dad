@@ -4,16 +4,15 @@ FLAG = "c0d{fake_flag}"
 
 app = Flask(__name__)
 
+# Dictionary of questions and valid answers
 qna = {
     "dob": [
         "May 26, 1974", "26 May 1974", "1974-05-26", "26-05-1974",
         "1974/05/26", "26/05/1974", "26 05 1974", "1974 05 26",
         "26th May 1974", "Twenty sixth of May, 1974",
         "May 26th, 1974", "26th, May 1974", "1974, May 26",
-        "26, May 1974",
-        "May 26, 1974 CE", "26 May 1974 AD",
-        "26th of May, '74", "May 26, '74",
-        "5/26/74", "26.05.1974"
+        "26, May 1974", "May 26, 1974 CE", "26 May 1974 AD",
+        "26th of May, '74", "May 26, '74", "5/26/74", "26.05.1974"
     ],
     "org": [
         "Satara, Maharashtra, India", "Satara", "Maharashtra",
@@ -24,18 +23,11 @@ qna = {
     ],
     "mcycle": [
         "Royal Enfield Classic 500", "Royal Enfield 500",
-        "Classic 500", "RE Classic 500", "RE 500",
-        "Royal Enfield", "Bullet",
-        "Royal Enfield Interceptor 650", "Royal Enfield Continental GT 650",
-        "Royal Enfield Classic 350", "Royal Enfield Bullet 350",
-        "RE Bullet", "RE Classic"
+        "Classic 500", "RE Classic 500"
     ],
     "cuisine": [
         "Italian cuisine", "Italian", "Italian food",
-        "Italian dishes", "Italian meals", "Pasta", "Pizza",
-        "Spaghetti", "Lasagna", "Risotto", "Tiramisu",
-        "Italian-American cuisine", "Sicilian cuisine",
-        "Pizza Margherita", "Pasta Carbonara"
+        "Italian dishes", "Italian meals"
     ],
     "curr": [
         "Stockholm, Sweden", "Stockholm", "Stockholm, SE",
@@ -45,49 +37,77 @@ qna = {
         "Stockholm, Sweden (Scandinavia)"
     ],
     "track": [
-        "Tarmac", "Asphalt", "Road", "Blacktop", "Paved road",
-        "Race track", "Circuit", "F1 track",
-        "Circuit de Barcelona-Catalunya", "Silverstone Circuit",
-        "Formula 1 track", "Grand Prix circuit"
+        "Tarmac"
     ],
     "degree": [
         "Mechanical Engineering", "Mech Engg", "Mech Engineering",
         "Mechanical Engg", "Mech E", "B.Tech Mechanical", "M.Tech Mechanical",
         "Mechanical Engineer", "Mechanical Engineering Degree",
         "Bachelor of Technology (B.Tech.) in Mechanical Engineering",
-        "Mech. Engg."
+        "Mech. Engg.", "Mechanical", "Mech"
     ],
     "rally": [
         "WRC EKO Acropolis Rally Greece", "Acropolis Rally Greece",
-        "EKO Acropolis Rally", "Acropolis Rally", "WRC Acropolis",
-        "WRC Rally Chile Bio Bio", "Rally Chile Bio Bio",
-        "Chile Rally", "Rally Chile", "WRC Chile Rally",
-        "WRC Rally Finland", "WRC Rally Monte Carlo",
-        "Rallying event", "Rally competition"
+        "EKO Acropolis Rally", "Acropolis Rally", "WRC Acropolis", "Greece"
     ],
     "next": [
         "WRC Rally Chile Bio Bio", "Rally Chile Bio Bio",
-        "Chile Rally", "Rally Chile", "WRC Chile Rally",
-        "WRC Rally Japan", "WRC Rally Mexico"
+        "Chile Rally", "Rally Chile", "WRC Chile Rally", "Chile"
     ],
     "team": [
         "Subaru World Rally Team (SWRT)", "SWRT", "Subaru World Rally Team",
         "Subaru Rally Team", "Subaru WRT", "Subaru",
-        "Subaru Racing",
-        "Hyundai Motorsport", "Toyota Gazoo Racing"
+        "Subaru Racing"
     ]
+}
+
+# User-friendly field names for displaying errors
+field_labels = {
+    "dob": "Date of Birth",
+    "org": "Place of Origin",
+    "mcycle": "Favorite Motorcycle",
+    "cuisine": "Favorite Cuisine",
+    "curr": "Current Residence",
+    "track": "Favorite Track Type",
+    "degree": "Degree",
+    "rally": "Recent Rally Event",
+    "next": "Next Rally Event",
+    "team": "Rally Team"
 }
 
 @app.route("/", methods=["GET", "POST"])
 def home():
+    """
+    Handle GET and POST requests for the root URL.
+    
+    On GET request, renders the form. On POST request, processes form data,
+    checks answers, and returns appropriate response.
+    """
     if request.method == "POST":
+        incorrect_fields = []
+        
+        # Check user's answers against valid answers
         for key, valid_answers in qna.items():
-            user_input = request.form.get(key).lower()  # Convert input to lowercase
-            valid_lower = [answer.lower() for answer in valid_answers]  # Convert valid answers to lowercase
+            user_input = request.form.get(key, "").strip().lower()
+            valid_lower = [answer.lower() for answer in valid_answers]
+            
             if user_input not in valid_lower:
+<<<<<<< HEAD
                 return f"Wrong answer! Try again."
+=======
+                incorrect_fields.append(field_labels.get(key, key))
+        
+        # Return message if there are incorrect answers
+        if incorrect_fields:
+            incorrect_list = ", ".join(incorrect_fields)
+            return f"Wrong answer! The following fields are incorrect: {incorrect_list}"
+        
+        # Return the flag if all answers are correct
+>>>>>>> 9322ef3 (Fix: removed the wrong options)
         return FLAG
 
+    # Render the form template on GET request
     return render_template("ques.html")
 
+# Run the Flask app
 app.run('0.0.0.0', 8080)
