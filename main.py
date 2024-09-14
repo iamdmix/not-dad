@@ -85,7 +85,7 @@ def home():
             user_input = request.form.get(key).lower()  # Convert input to lowercase
             valid_lower = [answer.lower() for answer in valid_answers]  # Convert valid answers to lowercase
             if user_input not in valid_lower:
-                return "Wrong answer! Try again."
+                return f"Wrong answer! Try again. {user_input}"
         return FLAG
 
     return render_template("ques.html")
