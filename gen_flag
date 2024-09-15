@@ -1,1 +1,3 @@
-sed -i "s/c0d{fake_flag}/$1/" /root/main.py
+#!/bin/bash
+echo $1 > flag.txt
+# sed -i "s/c0d{fake_flag}/$1/" /root/main.py

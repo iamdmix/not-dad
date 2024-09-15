@@ -1,7 +1,5 @@
 from flask import Flask, request, render_template
 
-FLAG = "c0d{fake_flag}"
-
 app = Flask(__name__)
 
 # Dictionary of questions and valid answers
@@ -75,6 +73,13 @@ field_labels = {
     "team": "Rally Team"
 }
 
+def get_flag():
+    try:
+        with open("/root/flag.txt") as f:
+            return f.read().strip()
+    except:
+        return "No Flag Set Yet :( Contact Admins"
+
 @app.route("/", methods=["GET", "POST"])
 def home():
     """
@@ -100,7 +105,7 @@ def home():
             return f"Wrong answer! The following fields are incorrect: {incorrect_list}"
         
         # Return the flag if all answers are correct
-        return FLAG
+        return get_flag()
 
     # Render the form template on GET request
     return render_template("ques.html")
